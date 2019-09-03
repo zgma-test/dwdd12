@@ -10,7 +10,7 @@ exports.handler = function (event, context, callback) {
 
     ddb.put({
         TableName: 'MyDDB',
-        Item: { 'id': 12434 }
+        Item: { 'id': 124e34 }
     }).promise()
         .then((data) => {
             //your logic goes here
