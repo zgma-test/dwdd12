@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "dwdd/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n    \n\n\n    ddb.put({\n        TableName: 'MyDDB',\n        Item: { 'id': 124e341 }\n    }).promise()\n        .then((data) => {\n            //your logic goes here\n            console.log(data);\n            callback(null, data);\n        })\n        .catch((err) => {\n            //handle error\n            console.log(err);\n            callback(err);\n        });\n\n\n\n    \n\n\n\n\n\n\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n\n\n\n    ddb.put({\n        TableName: 'MyDDB',\n        Item: { 'id': 124e341 }\n    }).promise()\n        .then((data) => {\n            //your logic goes here\n            console.log(data);\n            callback(null, data);\n        })\n        .catch((err) => {\n            //handle error\n            console.log(err);\n            callback(err);\n        });\n\n\n\n\n\n\n\n\n\n\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -176,7 +176,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1567493437875
+    "lastSave": 1567494175969
   },
   "VCS_STATE": {
     "provider": "GitHub",
