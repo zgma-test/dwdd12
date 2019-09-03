@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "dwdd/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n\n\n\n    ddb.put({\n        TableName: 'MyDDB',\n        Item: { 'id': 124e34 }\n    }).promise()\n        .then((data) => {\n            //your logic goes here\n            console.log(data);\n        })\n        .catch((err) => {\n            //handle error\n            console.log(err);\n        });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n\n\n\n\n\n\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n    \n\n\n    ddb.put({\n        TableName: 'MyDDB',\n        Item: { 'id': 124e341 }\n    }).promise()\n        .then((data) => {\n            //your logic goes here\n            console.log(data);\n            callback(null, data);\n        })\n        .catch((err) => {\n            //handle error\n            console.log(err);\n            callback(err);\n        });\n\n\n\n    \n\n\n\n\n\n\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -65,6 +65,18 @@
     ],
     "currentFileId": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
     "resources": {
+      "snsusEast1TestSNS": {
+        "name": "snsusEast1TestSNS",
+        "type": "SNS",
+        "config": {
+          "topicMode": 1,
+          "topicName": "TestSNS",
+          "topicArn": "arn:aws:sns:us-east-1:318300609668:TestSNS",
+          "topicRegion": "us-east-1",
+          "snsType": 0,
+          "subscriptions": []
+        }
+      },
       "apigusEast1TestAPIMyLambdaget": {
         "name": "apigusEast1TestAPIMyLambdaget",
         "type": "API_GATEWAY",
@@ -102,21 +114,24 @@
         "type": "DynamoDB",
         "config": {
           "mode": 0,
+          "operation": "put",
           "table": {
             "arn": "",
             "name": "MyDDB",
             "partitionKey": "id",
             "partitionKeyType": "N",
-            "hasSortKey": true,
-            "sortKey": "sk",
+            "hasSortKey": false,
+            "sortKey": "",
             "sortKeyType": "S",
             "payPerRequest": true,
             "mode": 0
           },
-          "isGlobalEditMode": true,
+          "isGlobalEditMode": false,
           "parameters": {
             "Key": {},
-            "Item": {},
+            "Item": {
+              "id": 123
+            },
             "ExpressionAttributeValues": {}
           },
           "triggerParams": {},
@@ -161,7 +176,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1567489979606
+    "lastSave": 1567493437875
   },
   "VCS_STATE": {
     "provider": "GitHub",
