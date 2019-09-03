@@ -14,9 +14,11 @@ exports.handler = function (event, context, callback) {
     }).promise()
         .then((data) => {
             //your logic goes here
+            console.log(data);
         })
         .catch((err) => {
             //handle error
+            console.log(err);
         });
 
 
