@@ -5,7 +5,7 @@ const ddb = new AWS.DynamoDB.DocumentClient();
 exports.handler = function (event, context, callback) {
     debugger;
 
-    
+
 
 
     ddb.put({
