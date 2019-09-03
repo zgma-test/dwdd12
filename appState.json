@@ -1,29 +1,28 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "0bc75302-ab3a-44ee-ba83-969902ae0439": {
-        "id": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+      "8b32154a-83b8-4bcc-9e72-ecb527fbffb0": {
+        "id": "8b32154a-83b8-4bcc-9e72-ecb527fbffb0",
         "parent": null,
-        "name": "dwdd",
+        "name": "newPrj",
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
-          "600a1fb5-15bc-4bba-b82e-f332876b4148"
+          "a397e01b-5cd1-41c6-84f0-3b4a1bb12cac"
         ],
         "isRemovable": false,
-        "filePath": "dwdd"
+        "filePath": "newPrj"
       },
-      "bc1ee230-7f49-45b8-8576-ab2ff878ee64": {
-        "id": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
-        "parent": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+      "a397e01b-5cd1-41c6-84f0-3b4a1bb12cac": {
+        "id": "a397e01b-5cd1-41c6-84f0-3b4a1bb12cac",
+        "parent": "8b32154a-83b8-4bcc-9e72-ecb527fbffb0",
         "name": "lambda.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "dwdd/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n\n\n\n    ddb.put({\n        TableName: 'MyDDB',\n        Item: { 'id': 124e341 }\n    }).promise()\n        .then((data) => {\n            //your logic goes here\n            console.log(data);\n            callback(null, data);\n        })\n        .catch((err) => {\n            //handle error\n            console.log(err);\n            callback(err);\n        });\n\n\n\n\n\n\n\n\n\n\n}",
+        "filePath": "newPrj/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -31,118 +30,16 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": [
-          {
-            "resourceName": "apigusEast1TestAPIMyLambdaget",
-            "config": {}
-          }
-        ],
-        "testCases": {
-          "0108d0a6-208b-4798-85ff-738646638ac0": {
-            "id": "0108d0a6-208b-4798-85ff-738646638ac0",
-            "name": "Test event",
-            "functionId": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
-            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
-            "eventTemplate": "hello-world"
-          }
-        }
-      },
-      "600a1fb5-15bc-4bba-b82e-f332876b4148": {
-        "id": "600a1fb5-15bc-4bba-b82e-f332876b4148",
-        "parent": "0bc75302-ab3a-44ee-ba83-969902ae0439",
-        "name": "dwd",
-        "type": "DIRECTORY",
-        "isDirectory": true,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "dwdd/dwd"
+        "triggers": []
       }
     },
     "deletedFiles": [],
-    "rootNode": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+    "rootNode": "8b32154a-83b8-4bcc-9e72-ecb527fbffb0",
     "openFiles": [
-      "bc1ee230-7f49-45b8-8576-ab2ff878ee64"
+      "a397e01b-5cd1-41c6-84f0-3b4a1bb12cac"
     ],
-    "currentFileId": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
-    "resources": {
-      "snsusEast1TestSNS": {
-        "name": "snsusEast1TestSNS",
-        "type": "SNS",
-        "config": {
-          "topicMode": 1,
-          "topicName": "TestSNS",
-          "topicArn": "arn:aws:sns:us-east-1:318300609668:TestSNS",
-          "topicRegion": "us-east-1",
-          "snsType": 0,
-          "subscriptions": []
-        }
-      },
-      "apigusEast1TestAPIMyLambdaget": {
-        "name": "apigusEast1TestAPIMyLambdaget",
-        "type": "API_GATEWAY",
-        "config": {
-          "selectedRegion": "us-east-1",
-          "apiMode": 1,
-          "apiName": "TestAPI",
-          "apiId": "0itznun7w3",
-          "endpointType": "EDGE",
-          "rootResourceId": "h2lelj6j7k",
-          "existingResources": {
-            "/MyLambda": "98nqbj",
-            "/": "h2lelj6j7k",
-            "/newchange/test": "k6pdhn",
-            "/newchange": "q1ox7l",
-            "/testWithSlash": "q4m4g1",
-            "/testtwospeciallambda": "q4szm3",
-            "/testtwospecialkumutest": "wey3lk"
-          },
-          "resourceMode": 1,
-          "resourcePath": "/MyLambda",
-          "resourceName": "MyLambda",
-          "resourceId": "98nqbj",
-          "restMethod": "GET",
-          "proxyIntegration": false,
-          "enableCORS": false,
-          "stageMode": 1,
-          "stageName": "Prod",
-          "stageDeploymentId": "e6ip3h",
-          "mode": 1
-        }
-      },
-      "ddbMyDDB": {
-        "name": "ddbMyDDB",
-        "type": "DynamoDB",
-        "config": {
-          "mode": 0,
-          "operation": "put",
-          "table": {
-            "arn": "",
-            "name": "MyDDB",
-            "partitionKey": "id",
-            "partitionKeyType": "N",
-            "hasSortKey": false,
-            "sortKey": "",
-            "sortKeyType": "S",
-            "payPerRequest": true,
-            "mode": 0
-          },
-          "isGlobalEditMode": false,
-          "parameters": {
-            "Key": {},
-            "Item": {
-              "id": 123
-            },
-            "ExpressionAttributeValues": {}
-          },
-          "triggerParams": {},
-          "validator": {
-            "validatableFields": {},
-            "validity": true
-          },
-          "valid": true
-        }
-      }
-    },
+    "currentFileId": "a397e01b-5cd1-41c6-84f0-3b4a1bb12cac",
+    "resources": {},
     "customTemplate": {
       "dialect": null,
       "definitions": null
@@ -158,30 +55,22 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {
-        "aws-sdk": {
-          "name": "aws-sdk",
-          "language": "javascript",
-          "version": "2.176.0",
-          "dev": true,
-          "notRemovable": false
-        }
-      }
+      "dependencies": {}
     }
   },
   "PROJECT_META": {
-    "projectName": "dwdd",
+    "projectName": "newPrj",
     "projectDescription": "",
     "projectVersion": "1.0.0",
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1567494175969
+    "lastSave": 1567499870435
   },
   "VCS_STATE": {
     "provider": "GitHub",
     "repo": {
-      "name": "dwdd12",
+      "name": "newPrj",
       "url": "https://github.com/zgma-test/dwdd12"
     }
   }
