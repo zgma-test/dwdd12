@@ -1,0 +1,188 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "0bc75302-ab3a-44ee-ba83-969902ae0439": {
+        "id": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+        "parent": null,
+        "name": "dwdd",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
+          "600a1fb5-15bc-4bba-b82e-f332876b4148"
+        ],
+        "isRemovable": false,
+        "filePath": "dwdd"
+      },
+      "bc1ee230-7f49-45b8-8576-ab2ff878ee64": {
+        "id": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
+        "parent": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "dwdd/lambda.js",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n    \n\n\n    ddb.put({\n        TableName: 'MyDDB',\n        Item: { 'id': 12434 }\n    }).promise()\n        .then((data) => {\n            //your logic goes here\n        })\n        .catch((err) => {\n            //handle error\n        });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n\n\n\n\n\n\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1TestAPIMyLambdaget",
+            "config": {}
+          }
+        ],
+        "testCases": {
+          "0108d0a6-208b-4798-85ff-738646638ac0": {
+            "id": "0108d0a6-208b-4798-85ff-738646638ac0",
+            "name": "Test event",
+            "functionId": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
+            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
+            "eventTemplate": "hello-world"
+          }
+        }
+      },
+      "600a1fb5-15bc-4bba-b82e-f332876b4148": {
+        "id": "600a1fb5-15bc-4bba-b82e-f332876b4148",
+        "parent": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+        "name": "dwd",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "dwdd/dwd"
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "0bc75302-ab3a-44ee-ba83-969902ae0439",
+    "openFiles": [
+      "bc1ee230-7f49-45b8-8576-ab2ff878ee64"
+    ],
+    "currentFileId": "bc1ee230-7f49-45b8-8576-ab2ff878ee64",
+    "resources": {
+      "ddbMyDDB": {
+        "name": "ddbMyDDB",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "operation": "put",
+          "table": {
+            "arn": "",
+            "name": "MyDDB",
+            "partitionKey": "id",
+            "partitionKeyType": "N",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 0
+          },
+          "isGlobalEditMode": false,
+          "parameters": {
+            "Key": {},
+            "Item": {
+              "id": 123
+            },
+            "ExpressionAttributeValues": {}
+          },
+          "triggerParams": {},
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
+        }
+      },
+      "snsusEast1TestSNS": {
+        "name": "snsusEast1TestSNS",
+        "type": "SNS",
+        "config": {
+          "topicMode": 1,
+          "topicName": "TestSNS",
+          "topicArn": "arn:aws:sns:us-east-1:318300609668:TestSNS",
+          "topicRegion": "us-east-1",
+          "snsType": 0,
+          "subscriptions": []
+        }
+      },
+      "apigusEast1TestAPIMyLambdaget": {
+        "name": "apigusEast1TestAPIMyLambdaget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "TestAPI",
+          "apiId": "0itznun7w3",
+          "endpointType": "EDGE",
+          "rootResourceId": "h2lelj6j7k",
+          "existingResources": {
+            "/MyLambda": "98nqbj",
+            "/": "h2lelj6j7k",
+            "/newchange/test": "k6pdhn",
+            "/newchange": "q1ox7l",
+            "/testWithSlash": "q4m4g1",
+            "/testtwospeciallambda": "q4szm3",
+            "/testtwospecialkumutest": "wey3lk"
+          },
+          "resourceMode": 1,
+          "resourcePath": "/MyLambda",
+          "resourceName": "MyLambda",
+          "resourceId": "98nqbj",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "Prod",
+          "stageDeploymentId": "e6ip3h",
+          "mode": 1
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "dwdd",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1567488894856
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "dwdd12",
+      "url": "https://github.com/zgma-test/dwdd12"
+    }
+  }
+}
